@@ -12,8 +12,16 @@ set(CLANG_OPT "-i")
 add_custom_target(start COMMAND onlineStore)
 add_custom_target(format COMMAND
     ${DO_CLANG_FORMAT} ${CLANG_OPT}
-  ../json.cpp
+    ../json.cpp
+    ../src/client.hpp
+    ../src/client.cpp
   )
 
+add_subdirectory(src)
+
+
 # add the executable
-add_executable(onlineStore json.cpp)
+add_executable(main main.cpp)
+add_executable(json json.cpp)
+
+target_link_libraries(main client)
