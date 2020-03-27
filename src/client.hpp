@@ -9,9 +9,9 @@
 
 class client{
 public:
-  client():url(""){}
-  bool getProducts(nlohmann::json&);
-  bool getFinalPrice(int& price);
+  client():url("http://localhost:1234/"){}
+  bool importProducts(nlohmann::json& products);
+  bool importFinalPrice(int& price);
   void setAddr(const std::string & new_url){url = new_url;}
 private:
   std::string url;

@@ -1,10 +1,11 @@
 #include "client.hpp"
 
-bool client::getProducts(nlohmann::json& arg){
+bool client::importProducts(nlohmann::json& products){
   std::string result;
   std::ostringstream response;
   curlpp::Cleanup myCleanup;
   curlpp::Easy myRequest;
+  nlohmann::json t_products = products;
 
   try
     {
@@ -13,7 +14,7 @@ bool client::getProducts(nlohmann::json& arg){
 
       myRequest.perform();
 
-      arg = nlohmann::json::parse(response.str());
+      products = nlohmann::json::parse(response.str());
 
 
     }
@@ -30,7 +31,7 @@ bool client::getProducts(nlohmann::json& arg){
     }
   catch(nlohmann::json::parse_error & e)
     {
-      arg = "";
+      products = t_products;
       std::cerr<<e.what()<<std::endl;
       std::cerr<<"Do not get json format from server.\n";
       return false;
@@ -38,7 +39,7 @@ bool client::getProducts(nlohmann::json& arg){
   return true;
 }
 
-bool client::getFinalPrice(int& price){
+bool client::importFinalPrice(int& price){
   curlpp::Cleanup myCleanup;
   curlpp::Easy myRequest;
   std::list<std::string> header;

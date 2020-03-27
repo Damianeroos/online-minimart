@@ -3,5 +3,5 @@
 int main(){
   client test;
   nlohmann::json k;
-  test.getProducts(k);
+  test.importProducts(k);
 }
