@@ -2,5 +2,6 @@
 
 int main(){
   client test;
-  test.setAddr("dupa");
+  nlohmann::json k;
+  test.getProducts(k);
 }

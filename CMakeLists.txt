@@ -24,4 +24,5 @@ add_subdirectory(src)
 add_executable(main main.cpp)
 add_executable(json json.cpp)
 
-target_link_libraries(main client)
+target_link_libraries(main client
+  ${CURLPP_LDFLAGS})

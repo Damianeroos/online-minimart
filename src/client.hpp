@@ -1,14 +1,19 @@
 #pragma once
 
 #include <nlohmann/json.hpp>
-#include <curl/curl.h>
+#include <curlpp/cURLpp.hpp>
+#include <curlpp/Easy.hpp>
+#include <curlpp/Options.hpp>
+#include <sstream>
+#include <cstdlib>
 
 class client{
 public:
-  client():addr("localhost:1234"){}
-  bool getProducts(const nlohmann::json&);
-  bool getFinalPrice(const nlohmann::json,int&);
-  void setAddr(const std::string & new_addr){addr = new_addr;}
+  client():url(""){}
+  bool getProducts(nlohmann::json&);
+  bool getFinalPrice(int& price);
+  void setAddr(const std::string & new_url){url = new_url;}
 private:
-  std::string addr;
+  std::string url;
+
 };

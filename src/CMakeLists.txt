@@ -1,3 +1,6 @@
+include(FindPkgConfig)
+pkg_check_modules(CURLPP REQUIRED curlpp)
+
 add_library(
   client
   ../src/client.hpp
