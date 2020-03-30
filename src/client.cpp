@@ -6,14 +6,15 @@ bool client::importProducts(nlohmann::json& products){
   curlpp::Cleanup myCleanup;
   curlpp::Easy myRequest;
   nlohmann::json t_products = products;
+  std::string temp_url = url + "/GetProducts";
 
   try
     {
-      myRequest.setOpt(new curlpp::options::Url(url));
+      myRequest.setOpt(new curlpp::options::Url(temp_url));
       myRequest.setOpt(new curlpp::options::WriteStream(&response));
 
       myRequest.perform();
-
+      std::cout<<"response: "<<response.str()<<std::endl;
       products = nlohmann::json::parse(response.str());
 
 
