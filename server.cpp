@@ -17,13 +17,14 @@ int main(){
     for (auto sig : {SIGHUP, SIGINT, SIGQUIT, SIGTERM})
       std::signal(sig, signal_handler);
  
-
+    std::cout<<"Server is starting...\n";
     endpoint.init(opts);
 
     auto handler = StoreHandler();
     handler.publish(router);
     endpoint.setHandler(router->handler());
     endpoint.serve();
+
   }
   catch(std::exception const& e){
     std::cerr << "FATAL ERROR during program execution: " << e.what() << '\n';

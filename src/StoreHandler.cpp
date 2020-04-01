@@ -15,8 +15,8 @@ void StoreHandler::sendProducts(Pistache::Rest::Request const& request,
 					    Pistache::Http::ResponseWriter response){
   std::string message;
   
-  if(request.query().as_str().empty()){ // only welcome addr but no parameters
-    response.send(Pistache::Http::Code::Ok, products);//tutaj wysyłamy string jsona
+  if(request.query().as_str().empty()){ 
+    response.send(Pistache::Http::Code::Ok, store.get().dump());//tutaj wysyłamy string jsona
   }
  
 }

@@ -3,6 +3,7 @@
 #include <pistache/endpoint.h>
 #include <pistache/http.h>
 #include <pistache/router.h>
+#include "products.hpp"
 
 
 class StoreHandler  {
@@ -12,6 +13,6 @@ public:
 private:
   void sendProducts(Pistache::Rest::Request const&,Pistache::Http::ResponseWriter response);
   void sendPrice(Pistache::Rest::Request const&,Pistache::Http::ResponseWriter response);
-  std::string products = "{ \"happy\": true, \"pi\": 3.141 }";
+  products  store;
 };
 
