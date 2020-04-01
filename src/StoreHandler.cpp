@@ -17,6 +17,7 @@ void StoreHandler::sendProducts(Pistache::Rest::Request const& request,
   
   if(request.query().as_str().empty()){ 
     response.send(Pistache::Http::Code::Ok, store.get().dump());//tutaj wysyłamy string jsona
+
   }
  
 }
