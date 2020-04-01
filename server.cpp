@@ -17,7 +17,9 @@ int main(){
     for (auto sig : {SIGHUP, SIGINT, SIGQUIT, SIGTERM})
       std::signal(sig, signal_handler);
  
+
     std::cout<<"Server is starting...\n";
+
     endpoint.init(opts);
 
     auto handler = StoreHandler();

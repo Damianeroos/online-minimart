@@ -1,6 +1,7 @@
 include(FindPkgConfig)
 pkg_check_modules(CURLPP REQUIRED curlpp)
 
+
 add_library(
   products
   ../src/products.hpp
@@ -19,5 +20,6 @@ add_library(
   ../src/StoreHandler.hpp
   ../src/StoreHandler.cpp
   )
+
 
 target_link_libraries(storeHandler products)

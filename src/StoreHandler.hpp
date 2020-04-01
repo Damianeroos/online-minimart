@@ -13,6 +13,8 @@ public:
 private:
   void sendProducts(Pistache::Rest::Request const&,Pistache::Http::ResponseWriter response);
   void sendPrice(Pistache::Rest::Request const&,Pistache::Http::ResponseWriter response);
+
   products  store;
+
 };
 
