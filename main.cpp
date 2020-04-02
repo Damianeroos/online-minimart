@@ -1,9 +1,10 @@
 #include "src/client.hpp"
 
-
-int main(){
+int main() {
   client test;
   nlohmann::json k;
+  int price = 100;
   test.importProducts(k);
-  std::cout<<k.dump(4);
+  test.importFinalPrice(price);
+  std::cout << price << std::endl;
 }

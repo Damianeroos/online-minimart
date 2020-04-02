@@ -18,6 +18,10 @@ add_custom_target(format COMMAND
     ../src/client.cpp
     ../src/StoreHandler.cpp
     ../src/StoreHandler.hpp
+    ../src/products.cpp
+    ../src/products.hpp
+    ../server.cpp
+    ../main.cpp
   )
 
 add_subdirectory(src)
