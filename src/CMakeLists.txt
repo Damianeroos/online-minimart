@@ -21,5 +21,11 @@ add_library(
   ../src/StoreHandler.cpp
   )
 
+add_library(
+  store
+  ../src/Store.cpp
+  ../src/Store.hpp
+  )
+
 
 target_link_libraries(storeHandler products)

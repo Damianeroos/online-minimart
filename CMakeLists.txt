@@ -20,6 +20,8 @@ add_custom_target(format COMMAND
     ../src/StoreHandler.hpp
     ../src/products.cpp
     ../src/products.hpp
+    ../src/Store.cpp
+    ../src/Store.hpp
     ../server.cpp
     ../main.cpp
   )
@@ -36,7 +38,9 @@ add_executable(json json.cpp)
 
 target_link_libraries(main PUBLIC client
   ${CURLPP_LDFLAGS}
-  storeHandler)
+  storeHandler
+  store
+  )
 target_link_libraries(server PUBLIC  storeHandler ${PISTACHE_LIBRARIES})
 
 #
