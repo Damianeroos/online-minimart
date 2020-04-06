@@ -3,14 +3,10 @@
 using json = nlohmann::json;
 
 int main() {
-  json j;
-  std::string s = "{\"name\":\"dupa\",\"weight\":93}";
-  j = json::parse(s);
-  // j["name"] = "dupa";
-  // j["weight"] = 93;
+  nlohmann::json j =
+      "{\"Product\":[{\"name\":\"chleb\",\"price\":450,\"weight\":350},{\"name\":\"piwo\",\"price\":350,\"weight\":500},{\"name\":\"papier toaletowy\",\"price\":10000,\"weight\":100},{\"name\":\"płyn dezynfekujacy Orlen\",\"price\":14000,\"weight\":1500}]}"_json;
 
-  for (auto& it : j.items()) {
-    if (it.key() == "weight") std::cout << it.value() << "\n";
+  for (const auto& it : j["Product"]) {
+    if (it["name"] == "chleb") std::cout << it.value("price", 0) << std::endl;
   }
-  std::cout << j << std::endl;
 }

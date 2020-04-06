@@ -1,14 +1,23 @@
 #include "Store.hpp"
+#include <iostream>
 
-bool Store::addToBasket(std::string& item) {
-  if (!stock.contains(item))  // no item in store
+bool Store::addToBasket(const std::string& item) {
+  if (emptyStock()) {
     return false;
+  }
 
-  basket.push_back(item);
-  return true;
+  for (const auto& it : stock["Product"]) {
+    if (it["name"] == item) {
+      basket.push_back(item);
+      net_price += it.value("price", 0);
+      return true;
+    }
+  }
+
+  return false;
 }
 
-bool Store::removeFromBasket(std::string& item) {
+bool Store::removeFromBasket(const std::string& item) {
   std::vector<std::string>::iterator it =
       std::find(basket.begin(), basket.end(), item);
 

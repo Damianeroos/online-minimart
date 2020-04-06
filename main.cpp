@@ -1,10 +1,12 @@
+#include "src/Store.hpp"
 #include "src/client.hpp"
 
 int main() {
   client test;
   nlohmann::json k;
-  int price = 100;
+  Store stock;
+
   test.importProducts(k);
-  test.importFinalPrice(price);
-  std::cout << price << std::endl;
+
+  std::cout << k.dump(4) << std::endl;
 }
