@@ -1,12 +1,7 @@
-#include "src/Store.hpp"
-#include "src/client.hpp"
+#include "src/online_store.hpp"
 
 int main() {
-  client test;
-  nlohmann::json k;
-  Store stock;
+  online_store store;
 
-  test.importProducts(k);
-
-  std::cout << k.dump(4) << std::endl;
+  std::cout << store.init() << std::endl;
 }

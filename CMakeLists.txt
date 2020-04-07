@@ -23,6 +23,8 @@ add_custom_target(format COMMAND
     ../src/products.hpp
     ../src/Store.cpp
     ../src/Store.hpp
+    ../src/online_store.cpp
+    ../src/online_store.hpp
     ../tests/test_Store.cpp
     ../server.cpp
     ../main.cpp
@@ -31,7 +33,7 @@ add_custom_target(format COMMAND
 enable_testing()
 
 add_subdirectory(src)
-#add_subdirectory(googletest)
+
 add_subdirectory(tests)
 
 include(FindPkgConfig)
@@ -42,10 +44,12 @@ add_executable(main main.cpp)
 add_executable(server server.cpp)
 add_executable(json json.cpp)
 
-target_link_libraries(main PUBLIC client
-  ${CURLPP_LDFLAGS}
-  storeHandler
-  store
+target_link_libraries(main PUBLIC
+  # client
+  # ${CURLPP_LDFLAGS}
+  # storeHandler
+  # store
+  online_store
   )
 target_link_libraries(server PUBLIC  storeHandler ${PISTACHE_LIBRARIES})
 

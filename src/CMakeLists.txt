@@ -27,5 +27,11 @@ add_library(
   ../src/Store.hpp
   )
 
+add_library(
+  online_store
+  ../src/online_store.cpp
+  ../src/online_store.hpp
+  )
 
 target_link_libraries(storeHandler products)
+target_link_libraries(online_store client ${CURLPP_LDFLAGS} storeHandler)

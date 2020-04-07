@@ -14,6 +14,7 @@ class Store {
   void clearPrice() { net_price = 0; }
   bool emptyBasket() { return basket.empty(); }
   bool emptyStock() { return stock.empty(); }
+  const nlohmann::json &getProducts() { return stock; }
 
  private:
   std::vector<std::string> basket;
