@@ -34,4 +34,4 @@ add_library(
   )
 
 target_link_libraries(storeHandler products)
-target_link_libraries(online_store client ${CURLPP_LDFLAGS} storeHandler)
+target_link_libraries(online_store client ${CURLPP_LDFLAGS} storeHandler store)

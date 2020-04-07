@@ -12,7 +12,7 @@ class client {
  public:
   client() : url("http://localhost:1234/") {}
   bool importProducts(nlohmann::json& products);
-  bool importFinalPrice(int& price);
+  bool importFinalPrice(unsigned long int& price);
   void setAddr(const std::string& new_url) { url = new_url; }
 
  private:

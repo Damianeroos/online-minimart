@@ -19,6 +19,6 @@ bool products::setProduct(std::string name, int price, int weight) {
 products::products() {
   setProduct("chleb", 450, 350);
   setProduct("piwo", 350, 500);
-  setProduct("papier toaletowy", 10000, 100);
-  setProduct("płyn dezynfekujacy Orlen", 14000, 1500);
+  setProduct("papier_toaletowy", 10000, 100);
+  setProduct("płyn_Orlen", 14000, 1500);
 }

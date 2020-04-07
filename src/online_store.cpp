@@ -14,6 +14,6 @@ bool online_store::computeGrossPrice() {
   unsigned long int price = get_price();
 
   if (!importFinalPrice(price)) return false;
-
+  gross_price = price;
   return true;
 }

@@ -10,6 +10,7 @@ class Store {
   const unsigned long int &get_price() { return net_price; }
   bool addToBasket(const std::string &);
   bool removeFromBasket(const std::string &);
+  const std::vector<std::string> &getBasket() { return basket; }
   void clearBasket() { basket.clear(); }
   void clearPrice() { net_price = 0; }
   bool emptyBasket() { return basket.empty(); }

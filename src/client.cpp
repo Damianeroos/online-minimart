@@ -32,7 +32,7 @@ bool client::importProducts(nlohmann::json& products) {
   return true;
 }
 
-bool client::importFinalPrice(int& price) {
+bool client::importFinalPrice(unsigned long int& price) {
   std::string result;
   std::ostringstream response;
   curlpp::Cleanup myCleanup;
