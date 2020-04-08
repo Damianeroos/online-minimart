@@ -14,22 +14,24 @@ set(CLANG_OPT "-i")
 add_custom_target(start COMMAND onlineStore)
 add_custom_target(format COMMAND
     ${DO_CLANG_FORMAT} ${CLANG_OPT}
-    ../src/client.hpp
+    ../include/client.hpp
     ../src/client.cpp
     ../src/StoreHandler.cpp
-    ../src/StoreHandler.hpp
+    ../include/StoreHandler.hpp
     ../src/products.cpp
-    ../src/products.hpp
+    ../include/products.hpp
     ../src/Store.cpp
-    ../src/Store.hpp
+    ../include/Store.hpp
     ../src/online_store.cpp
-    ../src/online_store.hpp
+    ../include/online_store.hpp
     ../tests/test_Store.cpp
     ../server.cpp
     ../main.cpp
   )
 
 enable_testing()
+
+include_directories(include)
 
 add_subdirectory(src)
 

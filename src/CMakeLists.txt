@@ -1,36 +1,34 @@
 include(FindPkgConfig)
 pkg_check_modules(CURLPP REQUIRED curlpp)
-
-
 add_library(
   products
-  ../src/products.hpp
+  ../include/products.hpp
   ../src/products.cpp
   )
 
 add_library(
   client
-  ../src/client.hpp
+  ../include/client.hpp
   ../src/client.cpp
   )
 
 
 add_library(
   storeHandler
-  ../src/StoreHandler.hpp
+  ../include/StoreHandler.hpp
   ../src/StoreHandler.cpp
   )
 
 add_library(
   store
+  ../include/Store.hpp
   ../src/Store.cpp
-  ../src/Store.hpp
   )
 
 add_library(
   online_store
+  ../include/online_store.hpp
   ../src/online_store.cpp
-  ../src/online_store.hpp
   )
 
 target_link_libraries(storeHandler products)

@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include "src/online_store.hpp"
+#include "online_store.hpp"
 
 using std::cin;
 using std::cout;
@@ -26,7 +26,7 @@ int main() {
   std::string url, item, quantity;
   std::vector<std::string>::iterator it;
   int temp;
-  bool success=false;
+  bool success = false;
 
   cout << "\tWELCOME TO ONLINE MINIMART!!!\n";
 
@@ -43,28 +43,26 @@ int main() {
     cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     switch (option) {
-    case 'p':
-      cout << (store.getProducts()).dump(2) << std::endl;
-      break;
-    case 'a':
-      cout << "Product name: ";
-      std::getline(std::cin,item);
-      cout << "Quantity: ";
-      
-      while(!success){
-	success=true;
-	cin>>quantity;
-	try{
-	  temp = std::stoi(quantity);
-	}
-	catch(const std::invalid_argument& e){
-	  std::cerr<<"The quantity has to be an intiger. Try again\n";
-	  std::cout<< "Quantity: ";
-	    success=false;
-	}
+      case 'p':
+        cout << (store.getProducts()).dump(2) << std::endl;
+        break;
+      case 'a':
+        cout << "Product name: ";
+        std::getline(std::cin, item);
+        cout << "Quantity: ";
 
-      }
-	success=false;
+        while (!success) {
+          success = true;
+          cin >> quantity;
+          try {
+            temp = std::stoi(quantity);
+          } catch (const std::invalid_argument& e) {
+            std::cerr << "The quantity has to be an intiger. Try again\n";
+            std::cout << "Quantity: ";
+            success = false;
+          }
+        }
+        success = false;
         for (int i = 0; i < temp; ++i) {
           if (!store.addToBasket(item)) {
             cout << "No " << item << " in the store\n";
@@ -77,7 +75,7 @@ int main() {
           cout << "Basket is empty\n";
         else {
           cout << "Basket:\n";
-          for (const auto &it : store.getBasket()) cout << it << std::endl;
+          for (const auto& it : store.getBasket()) cout << it << std::endl;
           cout << "Total items: " << store.getBasket().size() << std::endl;
           cout << "Net price: " << store.get_price() << std::endl;
         }
@@ -87,10 +85,10 @@ int main() {
           cout << "Failed to compute final price. Check internet connection\n";
           break;
         }
-	if(store.emptyBasket()){
-	  cout<< "Empty basket\n";
-	  break;
-	}
+        if (store.emptyBasket()) {
+          cout << "Empty basket\n";
+          break;
+        }
         cout << "Gross price: " << store.getGrossPrice() << std::endl;
         cout << "We accepted your order\n";
         store.clearBasket();
