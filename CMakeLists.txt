@@ -14,7 +14,6 @@ set(CLANG_OPT "-i")
 add_custom_target(start COMMAND onlineStore)
 add_custom_target(format COMMAND
     ${DO_CLANG_FORMAT} ${CLANG_OPT}
-    ../json.cpp
     ../src/client.hpp
     ../src/client.cpp
     ../src/StoreHandler.cpp
@@ -42,15 +41,9 @@ include_directories(${PISTACHE_INCLUDE_DIRS})
 # add the executable
 add_executable(main main.cpp)
 add_executable(server server.cpp)
-add_executable(json json.cpp)
 
-target_link_libraries(main PUBLIC
-  # client
-  # ${CURLPP_LDFLAGS}
-  # storeHandler
-  # store
-  online_store
-  )
+
+target_link_libraries(main PUBLIC  online_store  )
 target_link_libraries(server PUBLIC  storeHandler ${PISTACHE_LIBRARIES})
 
 #
